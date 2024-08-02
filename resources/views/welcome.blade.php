@@ -58,7 +58,7 @@ background-repeat: no-repeat;
                        
                         }
                         @endphp
-                       
+                       {{----------
                     @if(!empty($plan))
                     
                         @if(($plan->roomie_active_plan_id->plan_id!=$free_plan_id) && ($plan->roomie_active_plan_id->free_paid!='expired') && ($plan->roomie_active_plan_id->listing_included!=0)&& ($cond))
@@ -81,7 +81,12 @@ background-repeat: no-repeat;
                                 <br>
                                 <div class="myladyimh"> </div> <span class="text">Roomie</span>
                             </a>
-                    @endif
+                    @endif -----}}
+                    <a href="{{url('find-me-a-roomie/index',['rowid'=>''])}}">
+                                <span class="text" id="unpold"> List your room</span>
+                                <br>
+                                <div class="myladyimh"> </div> <span class="text">Roomie</span>
+                            </a>
                     </div>
                     <div data-aos="fade-up" data-aos-delay="150">
                         <a href="{{url('find-me-a-room/index/')}}">

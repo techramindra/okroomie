@@ -150,6 +150,7 @@ Route::post('/convertEncryption', [App\Http\Controllers\DashboardController::cla
 require __DIR__.'/auth.php';
 
 
+//Route::get("find-me-a-roomie/index",[App\Http\Controllers\FindMeARoomieController::class, 'step1'])->middleware(['auth']);
 Route::get("find-me-a-roomie/index",[App\Http\Controllers\FindMeARoomieController::class, 'step1'])->middleware(['auth']);
 Route::post("find-me-a-roomie/index",[App\Http\Controllers\FindMeARoomieController::class, 'store_step1'])->middleware(['auth']);
 
@@ -243,7 +244,7 @@ Route::post('payment-plan{id}',[App\Http\Controllers\Admin\PlanController::class
 
 Route::get('/find-me-a-room/index',function(){
     return view('pages/frontend/find-me-a-room/index');
-    });
+    })->middleware(['auth']);
     
 Route::get('/privacyPolicy',function(){
  return view('pages/frontend/privacy_policy');

@@ -95,25 +95,29 @@ class AuthenticatedSessionController extends Controller
          else
         {
             $user_data=User::where('email',$request->email)->first();
-            if(($user_data->user_block!=1) && ($user_data->deactivate_account!=1))
+            //dd($user_data);
+            if(isset($user_data->id))
             {
-                $credentials = $request->only('email', 'password');
-                if(Auth::attempt($credentials))
-                 {
-                     // Authentication passed...
-                    $request->session()->regenerate();
-                    return redirect()->route('homepage');
-                  }
-                  else
-                  {
-                    return back()->withError("Authentication Failed!");  
-                  }
-             
-              
-            }
-            elseif($user_data->user_block==1)
-            {
-                return back()->withError("You are Blocked by Admin!");
+                if(($user_data->user_block!=1) && ($user_data->deactivate_account!=1))
+                {
+                    $credentials = $request->only('email', 'password');
+                    if(Auth::attempt($credentials))
+                    {
+                        // Authentication passed...
+                        $request->session()->regenerate();
+                        return redirect()->route('homepage');
+                    }
+                    else
+                    {
+                        return back()->withError("Authentication Failed!");  
+                    }
+                
+                
+                }
+                elseif($user_data->user_block==1)
+                {
+                    return back()->withError("You are Blocked by Admin!");
+                }
             }
             else
             {
