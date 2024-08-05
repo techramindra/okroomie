@@ -446,7 +446,7 @@ function checkValidation()
     {
         encid="{{encrypt(210).'/'.request()->route('rid')}}";
         url=window.location.origin;
-        newurl=url+'/find-me-a-roomie/10/'+encid;
+        newurl='{{ url('find-me-a-roomie/10') }}/'+encid;
         window.location.href=newurl;
     }
     

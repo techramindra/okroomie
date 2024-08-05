@@ -20,6 +20,12 @@
 
     <!--   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="{{url('public/assets/frontend/list-my-place/js/jquery-ui.min.js')}}"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="{{url('public/assets/frontend/list-my-place/js/owl.carousel.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('public/assets/frontend/list-my-place/js/lightboxed.js')}}"></script>
 
     <style type="text/css">
         /* modal  inspection */
@@ -912,9 +918,11 @@
         }
 
 
-        /* *{
+        * {
+
             font-family: 'Open Sans', sans-serif !important;
-        } */
+            ;
+        }
     </style>
 
     <style>
@@ -941,7 +949,7 @@
             }
         }
     </style>
-   
+    <script src="https://use.fontawesome.com/c03345a92c.js"></script>
 </head>
 
 <body>
@@ -2183,12 +2191,6 @@
 </body>
 
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="{{url('public/assets/frontend/list-my-place/js/owl.carousel.min.js')}}"></script>
-<script type="text/javascript" src="{{url('public/assets/frontend/list-my-place/js/lightboxed.js')}}"></script>
-<script src="https://use.fontawesome.com/c03345a92c.js"></script>
 <script>
     function toggle_div_fun() {
         var selectObj = document.getElementById("exampleFormControlSelect1");

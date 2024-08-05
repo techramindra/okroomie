@@ -1,4 +1,4 @@
-;( function ( $ , window , document , undefined ) {
+( function ( $ , window , document , undefined ) {
 	
 	var pluginName = 'Lightboxed';
 	var ver	= '0.3';
@@ -357,16 +357,16 @@
 	} );
 	
 	$.fn.indexof = function ( a ) { var f; for ( var i = 0; i < jQuery( this ).length; i++ ) { if ( jQuery( this ).get(i) == a ) { f = i; } } return f; };
-	
-	$.fn.lightboxed = function ( options ) { 
-		var createInstance = function () { if ( !$.data( this , "plugin_" + pluginName ) ) { $.data( this , "plugin_" + pluginName , new Lightboxed( jQuery( this ) , options ) ); } };
-		var grouped = {};
-		jQuery( this ).filter( '[rel]' ).each( function () { var group = jQuery( this ).attr( 'rel' ); if ( grouped.hasOwnProperty( group ) ) { grouped[ group ].push( this ); } else { grouped[ group ] = [ this ]; } } );
-		jQuery.each( grouped , createInstance );
-		jQuery.each( jQuery( this ).filter( ':not([rel])' ) , createInstance );
-		return this; 
-	};
-	
+	///////
+	// $.fn.lightboxed = function ( options ) { 
+	// 	var createInstance = function () { if ( !$.data( this , "plugin_" + pluginName ) ) { $.data( this , "plugin_" + pluginName , new Lightboxed( jQuery( this ) , options ) ); } };
+	// 	var grouped = {};
+	// 	jQuery( this ).filter( '[rel]' ).each( function () { var group = jQuery( this ).attr( 'rel' ); if ( grouped.hasOwnProperty( group ) ) { grouped[ group ].push( this ); } else { grouped[ group ] = [ this ]; } } );
+	// 	jQuery.each( grouped , createInstance );
+	// 	jQuery.each( jQuery( this ).filter( ':not([rel])' ) , createInstance );
+	// 	return this; 
+	// };
+	///////////
 	$.fn.indexOf = function ( e ) { 
 		var ret = false;
 		var string = jQuery( e )[0].outerHTML;

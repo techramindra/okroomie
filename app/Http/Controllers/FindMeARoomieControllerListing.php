@@ -770,7 +770,7 @@ class FindMeARoomieControllerListing extends Controller
                         $room_image_id=Room_image::create(["find_me_a_roomies_users_id"=>$id,"image"=>$name,"find_me_a_roomies_id"=>$find_me_a_roomies_id]);  
                         $res=Room_image::find($room_image_id->id);
                         $link="$res->image";
-                        $data.='<div id="imageid'.$res->id.'" class="imageclass"><div class="main_img_icone"><a onclick="deleteImage('.$res->id.')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div><img src="https://okroomie.com/public/images/'.$link.'" height="auto" width="150px"></div>';
+                        $data.='<div id="imageid'.$res->id.'" class="imageclass"><div class="main_img_icone"><a onclick="deleteImage('.$res->id.')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div><img src="'.url("public/images/$link").'" height="auto" width="150px"></div>';
 
                     }
                     $user=Find_me_a_roomie::where('user_id',$id)->where('id',$userData->id)->update(['completed_step'=>9]);
