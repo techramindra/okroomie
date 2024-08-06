@@ -1,5 +1,7 @@
+{{-------
 @extends('layouts.frontendMaster')
 @section('contents')
+------}}
 <!-- END HEADER SEARCH -->
 @php
 $free_plan_id='';
