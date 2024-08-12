@@ -304,11 +304,11 @@ background-repeat: no-repeat;
                         </div>
                         <div class="card-footer price-properties footer">
                             <h3 class="title">
-                                <a href="single-property-1.html">
+                                <a href="#">
                                     <span class="mt-0"> Response rate: 100%</span>
                                 </a>
                             </h3>
-                            <div class="compare"> <a href="#" title="Compare" class="new_miss"> Message </a>
+                            <div class="compare"> <a href="{{route('roomDetailss',['id'=>$val['okroomie_id']])}}"  class="new_miss"> Message </a>
                                 <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
                             </div>
                         </div>
@@ -419,11 +419,11 @@ background-repeat: no-repeat;
                         </div>
                         <div class="card-footer price-properties footer">
                             <h3 class="title">
-                                <a href="single-property-1.html">
+                                <a href="#">
                                     <span class="mt-0"> Response rate: 100%</span>
                                 </a>
                             </h3>
-                            <div class="compare"> <a href="#" title="Compare" class="new_miss"> Message </a>
+                            <div class="compare"> <a href="{{route('roomieDetailss',['slug'=>$slug])}}"  class="new_miss"> Message </a>
                                 <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
                             </div>
                         </div>
@@ -552,11 +552,11 @@ background-repeat: no-repeat;
                         </div>
                         <div class="card-footer price-properties footer">
                             <h3 class="title">
-                                <a href="single-property-1.html">
+                                <a href="#">
                                     <span class="mt-0"> Response rate: 100%</span>
                                 </a>
                             </h3>
-                            <div class="compare"> <a href="#" title="Compare" class="new_miss"> Message </a>
+                            <div class="compare"> <a href="{{route('roomieDetailss',['slug'=>$slug6])}}"  class="new_miss"> Message </a>
                                 <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
                             </div>
                         </div>
@@ -601,7 +601,8 @@ background-repeat: no-repeat;
             </div>
         </div>
     </div>
-</section> @endsection('contents') 
+</section>
+@endsection('contents') 
 @push('carousel_script')
 <script type="text/javascript">
     $('.owl-carousel').owlCarousel({

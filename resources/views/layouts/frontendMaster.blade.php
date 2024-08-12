@@ -12,7 +12,7 @@
 
 
 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOvF8ud8JKn9fbI7I36Y_zzxGOTNc3ai4&sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5GXkHKunbMYE85WJI_Vgv6IXZ-xz_so8&sensor=false&libraries=places"></script>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -356,7 +356,7 @@
     }
 
     .col-6.extttt {
-        left: 25% ;
+        left: 25%;
     }
 
     .ujsm div#exampleModal .modal-dialog {
@@ -1677,13 +1677,7 @@
     }
 </style>
 
-<script>
-    $(document).ready(function() {
-        if (!$.browser.webkit) {
-            $('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
-        }
-    });
-</script>
+
 
 
 
@@ -2365,35 +2359,49 @@
 
                                                 <div class="serachbar-popup" id="serachbar-popup">
                                                     <div class="inner-popup">
-                                                        <form id="" action="{{route('searchOnHomePage')}}" method="post">
-                                                            @csrf
-                                                            <ul>
-                                                                <li>
-                                                                    <label class="contain">
-                                                                        <input type="radio" value="Roomie" checked="checked" name="search_type" />
-                                                                        <span class="checkmark">Roomie</span>
-                                                                    </label>
-                                                                </li>
-                                                                <li>
-                                                                    <label class="contain">
-                                                                        <input type="radio" value="Room" checked="checked" name="search_type" />
-                                                                        <span class="checkmark">Room </span>
-                                                                    </label>
-                                                                </li>
-                                                                <li>
-                                                                    <label class="contain">
-                                                                        <input type="radio" value="Group" checked="checked" name="search_type" />
-                                                                        <span class="checkmark">Group</span>
-                                                                    </label>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="searchinput">
-                                                                <input type="text" name="search_query" class="form-control" placeholder="Where Will You Go" id="search_query" required>
+                                                        <div class="1st">
+                                                            <form id="" action="{{route('searchOnHomePage')}}" method="post">
+                                                                @csrf
+                                                                <ul>
+                                                                    <li>
+                                                                        <label class="contain">
+                                                                            <input type="radio" value="Roomie" checked="checked" name="search_type" />
+                                                                            <span class="checkmark">Roomie</span>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label class="contain">
+                                                                            <input type="radio" value="Room" checked="checked" name="search_type" />
+                                                                            <span class="checkmark">Room </span>
+                                                                        </label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <label class="contain">
+                                                                            <input type="radio" value="Group" checked="checked" name="search_type" />
+                                                                            <span class="checkmark">Group</span>
+                                                                        </label>
+                                                                    </li>
+                                                                </ul>
+                                                                <div class="searchinput">
+                                                                    <input type="text" name="search_query" class="form-control" placeholder="Where Will You Go" id="search_query" required>
+                                                                </div>
+                                                                <div class="searchbutton">
+                                                                    <button><i class="fa fa-search"></i> Search </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="secondnd">
+                                                            <div class="Exploreacity">
+                                                                <h3>Explore a city</h3>
                                                             </div>
-                                                            <div class="searchbutton">
-                                                                <button><i class="fa fa-search"></i> Search </button>
+                                                            <div class="city_list">
+                                                                <a href="#"><i class="Search fa fa-map-pin"></i> <span>Sydeny</span></a>
+                                                                <a href="#"><i class="Search fa fa-map-pin"></i> <span>Sydeny</span></a>
+                                                                <a href="#"><i class="Search fa fa-map-pin"></i> <span>Sydeny</span></a>
+                                                                <a href="#"><i class="Search fa fa-map-pin"></i> <span>Sydeny</span></a>
+
                                                             </div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2449,6 +2457,7 @@
                                                 <button><i class="fa fa-search"></i> Search </button>
                                             </div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -2458,28 +2467,28 @@
                         <nav id="navigation" class="style-1 head-tr">
                             <ul id="responsive" class="nav">
                                 <li class="resp-visible d-none" id="exampleModalumesh2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-</svg><a href="javascript:;">Search</a></li>
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg><a href="javascript:;">Search</a></li>
 
                                 <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-</svg><a href="{{route('favourite')}}">Favorite</a></li>
+                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                    </svg><a href="{{route('favourite')}}">Favorite</a></li>
                                 @auth
                                 <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
-</svg><a href="{{url('message')}}">Message</a></li>
+                                        <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                        <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z" />
+                                    </svg><a href="{{url('message')}}">Message</a></li>
                                 @endauth
                                 <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-</svg><a href="{{route('helpCenter')}}">Help Centre</a></li>
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg><a href="{{route('helpCenter')}}">Help Centre</a></li>
                                 @guest
                                 <li class="bor_uk resp-hide" id="gangaj"><a href="{{url('login')}}">Sign-up / Login</a></li>
                                 <li class="bor_uk resp-visible"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
-  <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
-  <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
-</svg><a href="{{url('login')}}">Login</a></li>
+                                        <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
+                                        <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z" />
+                                    </svg><a href="{{url('login')}}">Login</a></li>
                                 @endguest
                                 <li>
                                     <!-- Main Navigation -->
@@ -3042,10 +3051,8 @@
     </div>
     <!-- END PRELOADER -->
     <!-- ARCHIVES JS -->
-    <script src="{{url('public/assets/frontend/js/jquery-3.5.1.min.js')}}">
-        < /> <
-        script src = "{{url('public/assets/frontend/js/rangeSlider.js')}}" >
-    </script>
+    <script src="{{url('public/assets/frontend/js/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{url('public/assets/frontend/js/rangeSlider.js')}}"></script>
     <script src="{{url('public/assets/frontend/js/tether.min.js')}}"></script>
     <script src="{{url('public/assets/frontend/js/moment.js')}}"></script>
     <script src="{{url('public/assets/frontend/js/bootstrap.min.js')}}"></script>
@@ -3138,18 +3145,18 @@
     </script> -->
     <script>
         function acceptCookies() {
-          
+
             document.cookie = "cookiesAccepted=true; expires=Thu, 01 Jan 2099 00:00:00 UTC; path=/";
 
-     
+
             document.getElementById("cookiesss").style.display = "none";
         }
 
         if (document.cookie.indexOf("cookiesAccepted=true") !== -1) {
-         
+
             document.getElementById("cookiesss").style.display = "none";
         } else {
-          
+
             document.getElementById("cookiesss").style.display = "flex";
         }
     </script>
@@ -3880,7 +3887,14 @@
             change_map();
         });
     }
-    google.maps.event.addDomListener(window, "load", initialize);
+    google.maps.event.addEventListener()(window, "load", initialize);
+</script>
+<script>
+    $(document).ready(function() {
+        if (!$.browser.webkit) {
+            $('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
+        }
+    });
 </script>
 @stack('user-register')
 @stack('user-login')

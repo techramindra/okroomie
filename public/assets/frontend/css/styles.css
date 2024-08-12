@@ -52314,3 +52314,34 @@ html,body{
   align-items: center;
   align-content: center;
 }
+.innner_name {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 11%;
+  color: #008FB4 !important;
+}
+.secondnd {
+  margin-top: 6%;
+  text-align: left;
+}
+
+.city_list {
+  margin-top: 4%;
+  padding: 1%;
+  display: flex;
+  justify-content: space-around;
+  /* color: black !important; */
+}
+.city_list a i {
+  margin-left: 0;
+  color: #000000a3;
+}
+.city_list a span {
+  margin-left: 0;
+  color: #000000a3;
+}
+.city_list a  {
+  text-decoration: none;
+}

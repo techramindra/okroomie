@@ -583,7 +583,7 @@
 		align-content: center;
 		position: relative;
 		justify-content: flex-start;
-		background: #F2F3F3;
+		/* background: #F2F3F3; */
 		margin-bottom: 10px;
 	}
 
@@ -616,16 +616,17 @@
 	}
 
 	section#ramsms .container .bbabyt .ltegghg .immg {
-		/* width: 63px; */
-		/* height: 60px; */
+		width: 63px !important;
+		 height: 60px !important; 
 		border-radius: 50%;
 		overflow: hidden;
 		margin: 0;
 		padding: 0;
+		background: #F2F3F3;
 	}
 
 	section#ramsms .container .bbabyt .ltegghg .immg img {
-		width: 50px;
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
@@ -937,7 +938,7 @@
 <!-- Modal -->
 
 <div id="test">
-	
+
 </div>
 <div class="umesh">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1092,11 +1093,7 @@
 					<div class="bbabyt" id="singleUserBlock{{$val->id}}" onclick="getChatData({{$val->id}})">
 						<div class="ltegghg">
 							<div class="immg">
-								@if($val->image!=null)
-								<img src="{{url('storage/app/'.$val->image)}}">
-								@else
-								<img src="{{url('https://cdn.pixabay.com/photo/2021/11/30/08/24/strawberries-6834750__480.jpg')}}">
-								@endif
+								{!! profilepic($val->image,$val->your_first_name) !!}
 							</div>
 							<div class="immg44">
 								<h2 class="namert">{{$val->your_first_name}}</h2>
@@ -1272,7 +1269,7 @@
 		$("#onBeforDivClick").show();
 		$("#initial_container_id").hide();
 		var url = window.location.origin;
-		uurl = url + "/getChat/" + id;
+		uurl = "{{url('getChat')}}/" + id;
 		$("#replaceSenderMessages1").html('');
 		// $("#singleUserBlock" + id).html('');
 		$.get(uurl, function(data) {
@@ -1283,8 +1280,20 @@
 			$("#chatUserName").html(data.res[0].headerData.your_first_name);
 			var mess = 'Send ' + data.res[0].headerData.your_first_name + ' a message';
 			$("#rahhe").attr('placeholder', mess);
-			imageurl = url + '/storage/app/' + data.res[0].headerData.image;
-			$("#changeImage1").attr('src', imageurl);
+			imageurl ='{{url('/storage/app')}}/' + data.res[0].headerData.image;
+			//alert(data.res[0].headerData.image)
+			if(data.res[0].headerData.image!=null)
+		{
+			$(".maininner").remove()
+			$("#changeImage1").show().attr('src', imageurl);
+
+		}
+		else{
+			name=data.res[0].headerData.your_first_name[0]
+			$("#changeImage1").hide();
+			$(".aadimne").append('<div class="innner_name maininner" style="margin-top:-5%">'+name+'</div>')
+		}
+			
 			// encryptedid="{{encrypt("+data.res[0].id+")}}";
 			
 			$("#idsss").val(id);
@@ -1338,8 +1347,8 @@
 <script>
 	function getSingleChatData(id) {	
 		//alert(id);	
-		var url = window.location.origin;
-		uurl = url + "/getSingleChatData/" + id;
+		
+		uurl = "{{url('getSingleChatData')}}/" + id;
 		// console.log("URL: " + uurl);
 		$.get(uurl, function(data) {
 			//console.log(data);
@@ -1361,7 +1370,7 @@
 	function getInstantMessagesCount() {
 		var url = window.location.origin;
 		var totalUnseen = 0;
-		uurl = url + "/getInstantMessagesCount/";
+		uurl = "{{url('getInstantMessagesCount')}}";
 		$.get(uurl, function(data) {
 			$.each(data.user, function(key, item) {
 				$("#unseen_dynamic_data" + item.id).text(item.unseen);
@@ -1417,7 +1426,7 @@
 	function messageUserBlock() {
 		var user_id = $("#idsss").val();
 		if (user_id != '') {
-			$.post("{{route('messageUserBlock')}}", {
+			$.post("{{url('messageUserBlock')}}", {
 				id: user_id,
 				_token: "{{ csrf_token() }}"
 			}, function(data) {
@@ -1433,7 +1442,7 @@
 	function deleteConversation() {
 		var user_id = $("#idsss").val();
 		if (user_id != '') {
-			$.post("{{route('deleteConversation')}}", {
+			$.post("{{url('deleteConversation')}}", {
 				id: user_id,
 				_token: "{{ csrf_token() }}"
 			}, function(data) {
