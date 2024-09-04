@@ -138,6 +138,9 @@ Route::get('resume-plan',[App\Http\Controllers\Admin\PlanController::class,'resu
 
 
 Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
+Route::post('/paginate',[App\Http\Controllers\HomeController::class, 'PagiNate'])->name('paginate');
+Route::post('/PaginateCount',[App\Http\Controllers\HomeController::class, 'PaginateCount'])->name('PaginateCount');
+
 Route::get('/home',[App\Http\Controllers\HomeController::class, 'index']);
 Route::post('/upload_image_dashboard', [App\Http\Controllers\UserController::class, 'upload_image_dashboard']);
 
@@ -313,10 +316,10 @@ Route::get('find-me-a-room/demo_video',function(){
     return view('pages.frontend.demo_video');
 })->middleware(['auth']);
 
-Route::get('howItWorks',function(){ return view('pages.frontend.how_it_works');})->middleware(['auth']);
-Route::get('info',function(){ return view('pages.frontend.info');})->middleware(['auth']);
-Route::get('faq',function(){ return view('pages.frontend.faq');})->middleware(['auth']);
-Route::get('humanitarianContributions',function(){ return view('pages.frontend.Humanitarian_Contributions');})->middleware(['auth']);
+Route::get('howItWorks',function(){ return view('pages.frontend.how_it_works');});
+Route::get('info',function(){ return view('pages.frontend.info');});
+Route::get('faq',function(){ return view('pages.frontend.faq');});
+Route::get('humanitarianContributions',function(){ return view('pages.frontend.Humanitarian_Contributions');});
 
 
 

@@ -1,4 +1,3 @@
-
 @extends('layouts.frontendMaster')
 @section('contents')
 <!-- END HEADER SEARCH -->
@@ -6,27 +5,26 @@
 $free_plan_id='';
 if(!empty($plan))
 {
-    foreach($plan->plan_roomie as $vals)
-    {
-        if(((($vals->title=='free') || ($vals->title=='Free')) && (($vals->price=='') || ($vals->price==0))))    
-        {
-            $free_plan_id=$vals->id;  
-        }   
-    }
+foreach($plan->plan_roomie as $vals)
+{
+if(((($vals->title=='free') || ($vals->title=='Free')) && (($vals->price=='') || ($vals->price==0))))
+{
+$free_plan_id=$vals->id;
+}
+}
 }
 @endphp
 <style>
-    
-  @media only screen and (max-width: 600px) {
-.find-block-main {
-display: flex;
-align-items: center;
-background: url(https://okroomie.com/public/assets/frontend/images/bigp.jpg) !important;
-background-size: cover !important;
-background-position: 72% !important;
-background-repeat: no-repeat;
-}
-}
+    @media only screen and (max-width: 600px) {
+        .find-block-main {
+            display: flex;
+            align-items: center;
+            background: url(https://okroomie.com/public/assets/frontend/images/bigp.jpg) !important;
+            background-size: cover !important;
+            background-position: 72% !important;
+            background-repeat: no-repeat;
+        }
+    }
 </style>
 <section class="feature-categories find-block-main rec-pro">
     <div class="container-fluid">
@@ -36,10 +34,17 @@ background-repeat: no-repeat;
                     <p class="my_main_HG">Find a <span>Roomie</span>  with Australia’s leading
                         <!-- <br> --><span> shared accommodation finder</span>
                     </p>
-                    <button class="umesg"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+                    <a href="{{url('howItWorks')}}" style="text-decoration:none">
+                    <button class="umesg">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="25" height="25" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
                                 <path fill="#243233" d="M11 23a1 1 0 0 1-1-1V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788l-12 6A1.001 1.001 0 0 1 11 23Zm1-11.382v8.764L20.764 16Z" />
                                 <path fill="#243233" d="M16 4A12 12 0 1 1 4 16A12 12 0 0 1 16 4m0-2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Z" />
-                            </svg></span> How It Works</button>
+                            </svg>
+                        </span> 
+                        How It Works
+                    </button>
+                    </a>
                 </div>
                 <div class="topboxes m-0 d-flex flex-wrap">
                     <!-- Single category -->
@@ -48,18 +53,18 @@ background-repeat: no-repeat;
                         $cond=0;
                         if(!empty($plan))
                         {
-                            if($plan->roomie_active_plan_id->listing_included=='3 or more')
-                            {
-                                $cond=$plan->roomie_active_plan_id->roomie_listing_count<=10000;
+                        if($plan->roomie_active_plan_id->listing_included=='3 or more')
+                        {
+                        $cond=$plan->roomie_active_plan_id->roomie_listing_count<=10000;
                             }
                             else
                             {
-                                $cond=$plan->roomie_active_plan_id->roomie_listing_count<$plan->roomie_active_plan_id->listing_included; 
-                            }
-                       
-                        }
-                        @endphp
-                       {{----------
+                            $cond=$plan->roomie_active_plan_id->roomie_listing_count<$plan->roomie_active_plan_id->listing_included;
+                                }
+
+                                }
+                                @endphp
+                                {{----------
                     @if(!empty($plan))
                     
                         @if(($plan->roomie_active_plan_id->plan_id!=$free_plan_id) && ($plan->roomie_active_plan_id->free_paid!='expired') && ($plan->roomie_active_plan_id->listing_included!=0)&& ($cond))
@@ -67,27 +72,27 @@ background-repeat: no-repeat;
                                 <span class="text" id="unpold"> List your room</span>
                                 <br>
                                 <div class="myladyimh"> </div> <span class="text">Roomie</span>
-                            </a>
-                            @else
-                            <a href="{{route('showplan')}}">
-                                <span class="text" id="unpold"> List your room</span>
-                                <br>
-                                <div class="myladyimh"> </div> <span class="text">Roomie</span>
-                            </a>
-                            @endif
-                    
-                    @else
-                            <a href="{{route('showplan')}}">
-                                <span class="text" id="unpold"> List your room</span>
-                                <br>
-                                <div class="myladyimh"> </div> <span class="text">Roomie</span>
-                            </a>
-                    @endif -----}}
-                    <a href="{{url('find-me-a-roomie/index',['rowid'=>''])}}">
-                                <span class="text" id="unpold"> List your room</span>
-                                <br>
-                                <div class="myladyimh"> </div> <span class="text">Roomie</span>
-                            </a>
+                                </a>
+                                @else
+                                <a href="{{route('showplan')}}">
+                                    <span class="text" id="unpold"> List your room</span>
+                                    <br>
+                                    <div class="myladyimh"> </div> <span class="text">Roomie</span>
+                                </a>
+                                @endif
+
+                                @else
+                                <a href="{{route('showplan')}}">
+                                    <span class="text" id="unpold"> List your room</span>
+                                    <br>
+                                    <div class="myladyimh"> </div> <span class="text">Roomie</span>
+                                </a>
+                                @endif -----}}
+                                <a href="{{url('find-me-a-roomie/index',['rowid'=>''])}}">
+                                    <span class="text" id="unpold"> List your room</span>
+                                    <br>
+                                    <div class="myladyimh"> </div> <span class="text">Roomie</span>
+                                </a>
                     </div>
                     <div data-aos="fade-up" data-aos-delay="150">
                         <a href="{{url('find-me-a-room/index/')}}">
@@ -99,7 +104,7 @@ background-repeat: no-repeat;
                     <p></p>
                 </div>
             </div>
-        </div> --><span class="text"  id="unpold2"> Find your room</span>
+        </div> --><span class="text" id="unpold2"> Find your room</span>
                             <br>
                             <div class="myladyimh1"> </div> <span class="text">Room</span>
                         </a>
@@ -124,22 +129,38 @@ background-repeat: no-repeat;
     </div> -->
 </section>
 <div id="live_img" class="row">
-                <div class="lkimg col-md-3 col-sm-6">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239"/></svg>
-                    <h2 class="mb-0">Create free listing</h2>
-                </div>
-                <div class="lkimg col-md-3 col-sm-6">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239"/></svg>
-                    <h2 class="mb-0">Quick and Easy</h2>
-                </div>
-                <div class="lkimg col-md-3 col-sm-6">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239"/></svg>
-                    <h2 class="mb-0">Communicate freely via message, text or in app calls</h2>
-                </div>
-                <div class="lkimg col-md-3 col-sm-6">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73"/><path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239"/></svg>
-                    <h2 class="mb-0">Easy to use platform</h2>
-                </div>
+    <div class="lkimg col-md-3 col-sm-6">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239" />
+        </svg>
+        <h2 class="mb-0">Create free listing</h2>
+    </div>
+    <div class="lkimg col-md-3 col-sm-6">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239" />
+        </svg>
+        <h2 class="mb-0">Quick and Easy</h2>
+    </div>
+    <div class="lkimg col-md-3 col-sm-6">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239" />
+        </svg>
+        <h2 class="mb-0">Communicate freely via message, text or in app calls</h2>
+    </div>
+    <div class="lkimg col-md-3 col-sm-6">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="35" height="35" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M19.2 7.253a3.136 3.136 0 0 1 6.22.803M37.642 25.05a2.9 2.9 0 0 1-.148 2.83a3.136 3.136 0 0 1-5.431 0M31.2 5.838a3.136 3.136 0 0 1 5.137 3.597m2.403 26.473a11.563 11.563 0 0 1-10.123 7.532a12.202 12.202 0 0 1-11.438-18.788" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".971" d="M29.74 19.32a10.611 10.611 0 0 1 7.9 5.73" />
+            <path fill="none" stroke="#70bfd1" stroke-linecap="round" stroke-linejoin="round" d="M32.703 34.184a3.335 3.335 0 0 1 2.334-2.248a3.136 3.136 0 0 1 3.704 3.972m-6.038-1.724c-1.129 2.42-3.627 3.319-6.246 2.798a5.796 5.796 0 0 1-.491-11.25c2.564-.746 4.761-.164 6.096 2.148M31.2 5.838L17.18 24.651m12.56-5.331l6.596-9.885M15.425 29.021L19.2 7.253m5.125 7.81l1.095-7.008M9.397 18.908a3.136 3.136 0 1 1 5.721-2.57m.692 18.672L9.398 18.909m7.492 1.667l-1.772-4.239" />
+        </svg>
+        <h2 class="mb-0">Easy to use platform</h2>
+    </div>
 </div>
 <section>
     <div class="iddex_s">
@@ -182,278 +203,23 @@ background-repeat: no-repeat;
     <div class="container-fluid">
         <div class="sec-title">
             <h2>Featured Listings</h2>
-            <!-- <p>change to These are our featured listings</p> -->
         </div>
-      
+
         <section id="card_new">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-          
-            @if(!empty($data))
-              @foreach($data as $key=>$val)
-              @if($val['outputType']=="ROOM")
-              
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <div class="imgc">
-                            <div id="carouselExampleControls<?php echo $key+1;?>" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    
-                                <?php 
-                                     $j=1;
-                                     $length1='';
-                                     $active1='';
-                                     $count1='';
-                                     if($val['user_images']!=null)
-                                     {
-                                         $count1=count($val['user_images']);
-                                     }
-                                     else
-                                     {
-                                         $count1=0;
-                                     }
-                                     if($count1>0)
-                                     {
-                                         
-                                        foreach($val['user_images'] as $user_imagesVal1)
-                                        {
-                                           
-                                            $length1=count($val['user_images']);
-                                            if($j==$length1){ $active1="active";}else{ $active1='';}
-                                        ?>
-                                                <div class="carousel-item <?php echo $active1;?>">
-                                                <div class="img_div"> <img class="card-img-top" src="{{url('public/images/'.($user_imagesVal1['image']!=null ?$user_imagesVal1['image'] : ''))}}" alt="Card image cap" /> </div>
-                                                </div>
-                                        <?php $j++;} ?>
-                                    <?php
-                                     }
-                                     else
-                                     {
-                                       
-                                         ?>
-                                        <div class="carousel-item active">
-                                        <div class="img_div"> <img class="card-img-top" src="{{url('storage/app/'.($val['image']!=null ?$val['image'] : ''))}}" alt="Card image cap" /> </div>
-                                        </div>
-                                        <?php
-                                     }
-                                     ?>
-                                    
-                                   
-                                    
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls222" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </button>
-                                <button class="carousel-control-next" type="button" data-target="#carouselExampleControls222" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </button>
-                            </div>
-                            <div class="like" id="likeroom{{$val['id']}}">
-                                @if($val['like_status']!=1)
-                                <a href="javascript:;" id="notlikeheartroom{{$val['id']}}" onclick="like('ROOM',1,{{$val['id']}})"> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>
-                                @else
-                                <a href="javascript:;" id="likeheartroom{{$val['id']}}" onclick="like('ROOM',0,{{$val['id']}})"> <i class="fa fa-heart" aria-hidden="true"></i> </a>
-                                @endif
-                            </div>
-                           
-                            <div class="price2"> {{\Carbon\Carbon::parse($val['created_at'])->diffForHumans() }}</div>
-                            <div class="price">
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-link" aria-hidden="true"></i> </a>
-                                </div>
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-video-camera" aria-hidden="true"></i> </a>
-                                </div>
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-picture-o" aria-hidden="true"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="name">
-                                <h3>
-                                    <a href="{{route('roomDetailss',['id'=>$val['okroomie_id']])}}">{{$val['your_first_name']}}</a>
-                                </h3> <span>{{$val['age']}} year</span>
-                            </div>
-                            <div class="locen mb-2">
-                                <a href=""> <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg"><path d="m243.519 505.32c2.782 4.173 7.466 6.68 12.481 6.68s9.699-2.506 12.481-6.68c35.499-53.247 87.786-119.008 124.222-185.889 29.134-53.476 43.297-99.085 43.297-139.431 0-99.252-80.748-180-180-180s-180 80.748-180 180c0 40.346 14.163 85.955 43.297 139.431 36.409 66.83 88.796 132.752 124.222 185.889zm12.481-475.32c82.71 0 150 67.29 150 150 0 35.204-12.967 76.118-39.641 125.079-31.407 57.649-76.225 116.128-110.359 165.29-34.129-49.155-78.95-107.638-110.359-165.29-26.674-48.961-39.641-89.875-39.641-125.079 0-82.71 67.29-150 150-150z" fill="#626262" data-original="#626262" class=""></path><path d="m256 270c49.626 0 90-40.374 90-90s-40.374-90-90-90-90 40.374-90 90 40.374 90 90 90zm0-150c33.084 0 60 26.916 60 60s-26.916 60-60 60-60-26.916-60-60 26.916-60 60-60z" fill="#626262" data-original="#626262" class=""></path></g></g></svg> </span><span>Available {{$val['preferred_move_date']}}</span></a>
-                            </div>
-                            <div class="proinfo">
-                                <ul class="homes-list clearfix pb-3">
-                                    <li class="the-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                            <path fill="#626262" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8s8 3.589 8 8s-3.589 8-8 8z" />
-                                            <path fill="#626262" d="M13 7h-2v5.414l3.293 3.293l1.414-1.414L13 11.586z" />
-                                        </svg> <span>{{$val['preferred_length_of_stay']}}</span>
-                                    </li>
-                                    <li class="the-icons meiii"> <span>
-                                        
-                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
-                                                <path fill="#626262" d="M128 26a102 102 0 1 0 102 102A102.2 102.2 0 0 0 128 26Zm0 192a90 90 0 1 1 90-90a90.1 90.1 0 0 1-90 90Zm38-70a26.1 26.1 0 0 1-26 26h-6v10a6 6 0 0 1-12 0v-10h-18a6 6 0 0 1 0-12h36a14 14 0 0 0 0-28h-24a26 26 0 0 1 0-52h6V72a6 6 0 0 1 12 0v10h18a6 6 0 0 1 0 12h-36a14 14 0 0 0 0 28h24a26.1 26.1 0 0 1 26 26Z" />
-                                            </svg>
-                                            {{$val['weekely_budget']}}/Week
-                                        </span> </li>
-                                    <li class="the-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
-                                            <path fill="#626262" d="M8 2a1 1 0 1 1 0 2a1 1 0 0 1 0-2zm0-1a2 2 0 1 0 0 4a2 2 0 0 0 0-4zm1.23 4.49H6.77A1.77 1.77 0 0 0 5 7.26V9.9A1.06 1.06 0 0 0 6 11v2.33a1.2 1.2 0 0 0 1.2 1.2h1.6a1.2 1.2 0 0 0 1.2-1.24V11a1.06 1.06 0 0 0 1-1.1V7.26a1.77 1.77 0 0 0-1.77-1.77zM6 10V7.26a.76.76 0 0 1 .77-.77h2.46a.76.76 0 0 1 .77.77V10H9v3.31a.2.2 0 0 1-.2.2H7.2a.2.2 0 0 1-.2-.2V10H6z" />
-                                        </svg> <span>{{$val['gender']}}</span>
-                                    </li>
-                                    <li class="the-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
-                                            <path fill="#626262" d="M16 32C7.125 32 0 24.776 0 16C0 7.125 7.125 0 16 0s16 7.125 16 16c0 8.776-7.125 16-16 16zm0-29.312c-7.328 0-13.318 5.984-13.318 13.313S8.672 29.319 16 29.319c7.328 0 13.318-5.99 13.318-13.318S23.328 2.688 16 2.688zm7.849 14.859H12.286a.927.927 0 0 1-.932-.917v-1.349c0-.521.411-.932.932-.932h11.661c.516 0 .927.417.927.932v1.339c-.099.516-.516.927-1.026.927zm-2.995-5.162H9.187a.925.925 0 0 1-.932-.917v-1.349c0-.417.417-.828.932-.828h11.661c.417 0 .828.417.828.828v1.339c0 .516-.411.927-.823.927zm-11.666 7.23h11.667c.516 0 .927.411.927.927v1.339a.928.928 0 0 1-.922.932H9.188c-.516-.104-.927-.516-.927-1.031v-1.344c-.005-.411.411-.823.927-.823z" />
-                                        </svg> <span>web developer</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-footer price-properties footer">
-                            <h3 class="title">
-                                <a href="#">
-                                    <span class="mt-0"> Response rate: 100%</span>
-                                </a>
-                            </h3>
-                            <div class="compare"> <a href="{{route('roomDetailss',['id'=>$val['okroomie_id']])}}"  class="new_miss"> Message </a>
-                                <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @else
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 " id="dataadll">
                 
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <div class="imgc">
-                     
-                      
-                            <div id="carouselExampleControls<?php echo $key+2; ?>" class="carousel slide" data-ride="carousel9">
-                                <div class="carousel-inner">
-                                <?php 
-                                     $i2=1;
-                                     $length2='';
-                                     $active2='';
-                                    foreach($val['room_image'] as $room_imageVal2)
-                                    {
-                                       
-                                        $length2=count($val['room_image']);
-                                        if($i2==$length2){ $active2="active";}else{ $active2='';}
-                                    ?>
-                                    <div class="carousel-item <?php echo $active2;?>">
-                                        <div class="img_div"> <img class="card-img-top" src="{{url('public/images/'.($room_imageVal2['image']!=null ?$room_imageVal2['image'] : ''))}}" alt="Card image cap" /> </div>
-                                    </div>
-                                    <?php $i2++;} ?>
-                                    
-                                  
-                                 
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls<?php echo $key+2; ?>" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </button>
-                                <button class="carousel-control-next" type="button" data-target="#carouselExampleControls<?php echo $key+2; ?>" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </button>
-                            </div>
-                          
-                           
-                            <div class="like" id="likeroomie{{$val['id']}}">
-                                @if($val['like_status']!=1)
-                                <a href="javascript:;" id="notlikeheartroomie{{$val['id']}}" onclick="like('ROOMIE',1,{{$val['id']}})"> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>
-                                @else
-                                <a href="javascript:;" id="likeheartroomie{{$val['id']}}" onclick="like('ROOMIE',0,{{$val['id']}})"> <i class="fa fa-heart" aria-hidden="true"></i> </a>
-                                @endif
-                            </div>
-                            <div class="price2">{{\Carbon\Carbon::parse($val['created_at'])->diffForHumans() }}</div>
-                            <div class="price">
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-link" aria-hidden="true"></i> </a>
-                                </div>
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-video-camera" aria-hidden="true"></i> </a>
-                                </div>
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-picture-o" aria-hidden="true"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="name">
-                                @php
-                                    $slug_string=$val['accomodation_type'].' '.$val['property_address'].' '.$val['id'].' '.'Ok'.$val['user_id'];
-                                    $slug_array=explode(" ",$slug_string);
-                                    $slug=implode("-",$slug_array);
-                                @endphp
-                                
-                                <h3>
-                                    <a href="{{route('roomieDetailss',['slug'=>$slug])}}">{{$val['total_bedrooms']}} bedroom {{$val['accomodation_type']}}</a>
-                                </h3> <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 8.4666665 8.4666669" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg" id="layer2"><path id="path824" d="m4.2333334.26458337c-2.1887462 0-3.96875003 1.78000383-3.96875003 3.96875003 0 2.188746 1.78000383 3.9687499 3.96875003 3.9687499 2.188746 0 3.9687499-1.7800039 3.9687499-3.9687499 0-2.1887462-1.7800039-3.96875003-3.9687499-3.96875003zm0 .52916667c1.9027632 0 3.4416502 1.53681996 3.4416502 3.43958336 0 1.9027632-1.538887 3.4416502-3.4416502 3.4416502-1.9027634 0-3.43958336-1.538887-3.43958336-3.4416502 0-1.9027634 1.53681996-3.43958336 3.43958336-3.43958336zm-.0036169 1.32446696a.26460979.26460979 0 0 0 -.259933.2676839v.2227254c-.4272102.0801429-.7927162.3552394-.7927165.8319906 0 .3307291.1490956.5982189.3493328.753959s.4263305.2247926.624768.2909385c.1984375.066146.3697359.1293849.467155.2051552.097419.07577.1441772.1395265.1441772.337964 0 .4409723-1.0562663.4409723-1.0562663 0a.26464844.26464844 0 1 0 -.5291667 0c0 .4763793.3658309.7519969.7927165.8325075v.2216917a.26464844.26464844 0 1 0 .5291667 0v-.2216917c.426961-.080468.7932332-.3560628.7932332-.8325075 0-.3307292-.149612-.598219-.3498495-.7539591-.2002372-.1557401-.4263305-.2253093-.624768-.2914552-.1984375-.0661458-.3697359-.1288682-.467155-.2046385-.097419-.0757706-.1441772-.1395264-.1441772-.3379639.0000002-.4409718 1.0562663-.4409718 1.0562663 0a.2648417.2648417 0 1 0 .5296834 0c0-.4760347-.366396-.7508571-.7932332-.8314738v-.2232422a.26460979.26460979 0 0 0 -.2692342-.2676839z" fill="#626262" data-original="#626262" class=""></path></g></g></svg><span>{{$val['weekely_rent']}}/Week</span>
-                            </div>
-                            <div class="locen mb-2">
-                                <a href=""> <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg"><path d="m243.519 505.32c2.782 4.173 7.466 6.68 12.481 6.68s9.699-2.506 12.481-6.68c35.499-53.247 87.786-119.008 124.222-185.889 29.134-53.476 43.297-99.085 43.297-139.431 0-99.252-80.748-180-180-180s-180 80.748-180 180c0 40.346 14.163 85.955 43.297 139.431 36.409 66.83 88.796 132.752 124.222 185.889zm12.481-475.32c82.71 0 150 67.29 150 150 0 35.204-12.967 76.118-39.641 125.079-31.407 57.649-76.225 116.128-110.359 165.29-34.129-49.155-78.95-107.638-110.359-165.29-26.674-48.961-39.641-89.875-39.641-125.079 0-82.71 67.29-150 150-150z" fill="#626262" data-original="#626262" class=""></path><path d="m256 270c49.626 0 90-40.374 90-90s-40.374-90-90-90-90 40.374-90 90 40.374 90 90 90zm0-150c33.084 0 60 26.916 60 60s-26.916 60-60 60-60-26.916-60-60 26.916-60 60-60z" fill="#626262" data-original="#626262" class=""></path></g></g></svg>
-                                        <span>{{$val['property_address']}}</span> </span>
-                                </a>
-                            </div>
-                            <div class="proinfo">
-                                <ul class="homes-list clearfix pb-3">
-                                    <li class="the-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                            <path fill="#626262" d="M6 17h1.5v-1.5h9V17H18v-4.15q0-.75-.413-1.338q-.412-.587-1.087-.862V9q0-.825-.587-1.413Q15.325 7 14.5 7h-5q-.825 0-1.412.587Q7.5 8.175 7.5 9v1.65q-.675.275-1.088.862Q6 12.1 6 12.85Zm3-6.5v-2h6v2ZM7.5 14v-1.15q0-.35.25-.6t.6-.25h7.3q.35 0 .6.25t.25.6V14ZM4 22q-.825 0-1.412-.587Q2 20.825 2 20V4q0-.825.588-1.413Q3.175 2 4 2h16q.825 0 1.413.587Q22 3.175 22 4v16q0 .825-.587 1.413Q20.825 22 20 22Zm0-2h16V4H4v16Zm0 0V4v16Z" />
-                                        </svg> <span>{{$val['total_bedrooms']}}</span>
-                                    </li>
-                                    <li class="the-icons meiii"> <span>
-                                    <i class="bi bi-building"></i>
-                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                <path fill="#626262" d="M8 14c0-.55.45-1 1-1s1 .45 1 1s-.45 1-1 1s-1-.45-1-1zm4 1c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm-3-7.5c-1.76 0-3.22 1.31-3.46 3h6.93a3.52 3.52 0 0 0-3.47-3M12 6c2.76 0 5 2.24 5 5v1H7v-1c0-2.76 2.24-5 5-5zM9 18c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm5-14H4v16h16V4m0-2c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16z" />
-                                            </svg> -->
-                                            {{$val['total_bathrooms']}}
-                                        </span> </li>
-                                    <li class="the-icons">
-                                    <!-- <i class="bi bi-calendar-check"></i> -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                            <path fill="#626262" d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z" />
-                                            <path fill="#626262" d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z" />
-                                        </svg> 
-                                        <span> {{$val['date_available']}}</span>
-                                    </li>
-                                    <li class="the-icons" id="dctdtdd">
-                                    <i class="bi bi-bookmark"></i>
-                                        <!-- <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 15 15">
-                                            <path fill="none" stroke="#626262" d="M2.5 3v3m0 2v3m0 2.5V15m10-1.5V15m-3-5.5a2 2 0 1 1 0-4a2 2 0 0 1 0 4Zm-8-9h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Z" />
-                                        </svg>  -->
-                                        <span>​
-                                        {{$val['bond']}}</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-footer price-properties footer">
-                            <h3 class="title">
-                                <a href="#">
-                                    <span class="mt-0"> Response rate: 100%</span>
-                                </a>
-                            </h3>
-                            <div class="compare"> <a href="{{route('roomieDetailss',['slug'=>$slug])}}"  class="new_miss"> Message </a>
-                                <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
-                @endforeach
-                @endif
             </div>
-            <!-- <div class="row">
-                    <div class="col-12 matches">
-                        <button id="matches">View more matches</button>
-                    </div>
-                </div> -->
         </section>
-       
         <section class="pagination__block">
             <div class="inner__block_pagination">
-                <ul>
-                    <li> <a href="#">1</a> </li>
-                    <li> <a href="#">2</a> </li>
-                    <li> <a href="#">3</a> </li>
-                    <li> <a href="#" class="active_page">4</a> </li>
-                    <li> <a href="#">5</a> </li>
-                    <li> <a href="#">6</a> </li>
+                <ul id="pagination__block">
+                    
                 </ul>
             </div>
         </section>
     </div>
 </section>
+{{----------
 <section class="featured portfolio rec-pro disc featured__modify_nk second__bg_gray">
     <div class="container-fluid">
         <div class="sec-title discover">
@@ -468,141 +234,158 @@ background-repeat: no-repeat;
               <div class="col mb-4">
                     <div class="card h-100">
                         <div class="imgc">     
-                            <div id="carouselExampleControls<?php echo $key5+6; ?>" class="carousel slide" data-ride="carousel9">
+                            <div id="carouselExampleControls<?php echo $key5 + 6; ?>" class="carousel slide" data-ride="carousel9">
                                 <div class="carousel-inner">
-                                <?php 
-                                     $i6=1;
-                                     $length6='';
-                                     $active6='';
-                                    foreach($val5['room_image'] as $room_imageVal6)
-                                    {
-                                       
-                                        $length6=count($val5['room_image']);
-                                        if($i6==$length6){ $active6="active";}else{ $active6='';}
-                                    ?>
-                                    <div class="carousel-item <?php echo $active6;?>">
+                                <?php
+                                $i6 = 1;
+                                $length6 = '';
+                                $active6 = '';
+                                foreach ($val5['room_image'] as $room_imageVal6) {
+
+                                    $length6 = count($val5['room_image']);
+                                    if ($i6 == $length6) {
+                                        $active6 = "active";
+                                    } else {
+                                        $active6 = '';
+                                    }
+                                ?>
+                                    <div class="carousel-item <?php echo $active6; ?>">
                                         <div class="img_div"> <img class="card-img-top" src="{{url('public/images/'.($room_imageVal6['image']!=null ?$room_imageVal6['image'] : ''))}}" alt="Card image cap" /> </div>
-                                    </div>
-                                    <?php $i6++;} ?>                                 
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls<?php echo $key5+6; ?>" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </button>
-                                <button class="carousel-control-next" type="button" data-target="#carouselExampleControls<?php echo $key5+6; ?>" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </button>
-                            </div>                          
-                            <div class="like">
-                                <a href=""> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>
-                            </div>
-                            <div class="price2">{{\Carbon\Carbon::parse($val5['created_at'])->diffForHumans() }}</div>
-                            <div class="price">
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-link" aria-hidden="true"></i> </a>
-                                </div>
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-video-camera" aria-hidden="true"></i> </a>
-                                </div>
-                                <div class="icone_div1">
-                                    <a href=""> <i class="fa fa-picture-o" aria-hidden="true"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                                    @php
-                                    $slug_string6=$val['accomodation_type'].' '.$val5['property_address'].' '.$val5['id'].' '.'Ok'.$val5['user_id'];
-                                    $slug_array6=explode(" ",$slug_string6);
-                                    $slug6=implode("-",$slug_array6);
-                                @endphp
-                            <div class="name">
-                                <h3>
-                                    <a href="{{route('roomieDetailss',['slug'=>$slug6])}}">{{$val5['total_bedrooms']}} bedroom {{$val5['accomodation_type']}}</a>
-                                </h3><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 8.4666665 8.4666669" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg" id="layer2"><path id="path824" d="m4.2333334.26458337c-2.1887462 0-3.96875003 1.78000383-3.96875003 3.96875003 0 2.188746 1.78000383 3.9687499 3.96875003 3.9687499 2.188746 0 3.9687499-1.7800039 3.9687499-3.9687499 0-2.1887462-1.7800039-3.96875003-3.9687499-3.96875003zm0 .52916667c1.9027632 0 3.4416502 1.53681996 3.4416502 3.43958336 0 1.9027632-1.538887 3.4416502-3.4416502 3.4416502-1.9027634 0-3.43958336-1.538887-3.43958336-3.4416502 0-1.9027634 1.53681996-3.43958336 3.43958336-3.43958336zm-.0036169 1.32446696a.26460979.26460979 0 0 0 -.259933.2676839v.2227254c-.4272102.0801429-.7927162.3552394-.7927165.8319906 0 .3307291.1490956.5982189.3493328.753959s.4263305.2247926.624768.2909385c.1984375.066146.3697359.1293849.467155.2051552.097419.07577.1441772.1395265.1441772.337964 0 .4409723-1.0562663.4409723-1.0562663 0a.26464844.26464844 0 1 0 -.5291667 0c0 .4763793.3658309.7519969.7927165.8325075v.2216917a.26464844.26464844 0 1 0 .5291667 0v-.2216917c.426961-.080468.7932332-.3560628.7932332-.8325075 0-.3307292-.149612-.598219-.3498495-.7539591-.2002372-.1557401-.4263305-.2253093-.624768-.2914552-.1984375-.0661458-.3697359-.1288682-.467155-.2046385-.097419-.0757706-.1441772-.1395264-.1441772-.3379639.0000002-.4409718 1.0562663-.4409718 1.0562663 0a.2648417.2648417 0 1 0 .5296834 0c0-.4760347-.366396-.7508571-.7932332-.8314738v-.2232422a.26460979.26460979 0 0 0 -.2692342-.2676839z" fill="#626262" data-original="#626262" class=""></path></g></g></svg><span>{{$val5['weekely_rent']}}/Week</span>
-                            </div>
-                            <div class="locen mb-2">
-                                <a href=""> 
-                                         <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg"><path d="m243.519 505.32c2.782 4.173 7.466 6.68 12.481 6.68s9.699-2.506 12.481-6.68c35.499-53.247 87.786-119.008 124.222-185.889 29.134-53.476 43.297-99.085 43.297-139.431 0-99.252-80.748-180-180-180s-180 80.748-180 180c0 40.346 14.163 85.955 43.297 139.431 36.409 66.83 88.796 132.752 124.222 185.889zm12.481-475.32c82.71 0 150 67.29 150 150 0 35.204-12.967 76.118-39.641 125.079-31.407 57.649-76.225 116.128-110.359 165.29-34.129-49.155-78.95-107.638-110.359-165.29-26.674-48.961-39.641-89.875-39.641-125.079 0-82.71 67.29-150 150-150z" fill="#626262" data-original="#626262" class=""></path><path d="m256 270c49.626 0 90-40.374 90-90s-40.374-90-90-90-90 40.374-90 90 40.374 90 90 90zm0-150c33.084 0 60 26.916 60 60s-26.916 60-60 60-60-26.916-60-60 26.916-60 60-60z" fill="#626262" data-original="#626262" class=""></path></g></g></svg> </span>
-                                        <span>{{$val5['property_address']}}</span>
-                                </a>
-                            </div>
-                            <div class="proinfo">
-                                <ul class="homes-list clearfix pb-3">
-                                    <li class="the-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                            <path fill="#626262" d="M6 17h1.5v-1.5h9V17H18v-4.15q0-.75-.413-1.338q-.412-.587-1.087-.862V9q0-.825-.587-1.413Q15.325 7 14.5 7h-5q-.825 0-1.412.587Q7.5 8.175 7.5 9v1.65q-.675.275-1.088.862Q6 12.1 6 12.85Zm3-6.5v-2h6v2ZM7.5 14v-1.15q0-.35.25-.6t.6-.25h7.3q.35 0 .6.25t.25.6V14ZM4 22q-.825 0-1.412-.587Q2 20.825 2 20V4q0-.825.588-1.413Q3.175 2 4 2h16q.825 0 1.413.587Q22 3.175 22 4v16q0 .825-.587 1.413Q20.825 22 20 22Zm0-2h16V4H4v16Zm0 0V4v16Z" />
-                                        </svg> <span>{{$val5['total_bedrooms']}}</span>
-                                    </li>
-                                    <li class="the-icons meiii"> <span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                <path fill="#626262" d="M8 14c0-.55.45-1 1-1s1 .45 1 1s-.45 1-1 1s-1-.45-1-1zm4 1c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm-3-7.5c-1.76 0-3.22 1.31-3.46 3h6.93a3.52 3.52 0 0 0-3.47-3M12 6c2.76 0 5 2.24 5 5v1H7v-1c0-2.76 2.24-5 5-5zM9 18c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm5-14H4v16h16V4m0-2c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16z" />
-                                            </svg>
-                                            {{$val5['total_bathrooms']}}
-                                        </span> </li>
-                                    <li class="the-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                            <path fill="#626262" d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z" />
-                                            <path fill="#626262" d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z" />
-                                        </svg> <span> {{$val5['date_available']}}</span>
-                                    </li>
-                                    <li class="the-icons" id="dctdtdd">
-                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 15 15">
-                                            <path fill="none" stroke="#626262" d="M2.5 3v3m0 2v3m0 2.5V15m10-1.5V15m-3-5.5a2 2 0 1 1 0-4a2 2 0 0 1 0 4Zm-8-9h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Z" />
-                                        </svg> <span>​
-                                        {{$val5['bond']}}</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-footer price-properties footer">
-                            <h3 class="title">
-                                <a href="#">
-                                    <span class="mt-0"> Response rate: 100%</span>
-                                </a>
-                            </h3>
-                            <div class="compare"> <a href="{{route('roomieDetailss',['slug'=>$slug6])}}"  class="new_miss"> Message </a>
-                                <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>   
-                @endif
-                @endforeach
-                @endif
-            </div>
-            <!-- <div class="row">
+</div>
+<?php $i6++;
+                                } ?>
+</div>
+<button class="carousel-control-prev" type="button" data-target="#carouselExampleControls<?php echo $key5 + 6; ?>" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </button>
+<button class="carousel-control-next" type="button" data-target="#carouselExampleControls<?php echo $key5 + 6; ?>" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </button>
+</div>
+<div class="like">
+    <a href=""> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>
+</div>
+<div class="price2">{{\Carbon\Carbon::parse($val5['created_at'])->diffForHumans() }}</div>
+<div class="price">
+    <div class="icone_div1">
+        <a href=""> <i class="fa fa-link" aria-hidden="true"></i> </a>
+    </div>
+    <div class="icone_div1">
+        <a href=""> <i class="fa fa-video-camera" aria-hidden="true"></i> </a>
+    </div>
+    <div class="icone_div1">
+        <a href=""> <i class="fa fa-picture-o" aria-hidden="true"></i> </a>
+    </div>
+</div>
+</div>
+<div class="card-body">
+    @php
+    $slug_string6=$val['accomodation_type'].' '.$val5['property_address'].' '.$val5['id'].' '.'Ok'.$val5['user_id'];
+    $slug_array6=explode(" ",$slug_string6);
+    $slug6=implode("-",$slug_array6);
+    @endphp
+    <div class="name">
+        <h3>
+            <a href="{{route('roomieDetailss',['slug'=>$slug6])}}">{{$val5['total_bedrooms']}} bedroom {{$val5['accomodation_type']}}</a>
+        </h3><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 8.4666665 8.4666669" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+            <g>
+                <g xmlns="http://www.w3.org/2000/svg" id="layer2">
+                    <path id="path824" d="m4.2333334.26458337c-2.1887462 0-3.96875003 1.78000383-3.96875003 3.96875003 0 2.188746 1.78000383 3.9687499 3.96875003 3.9687499 2.188746 0 3.9687499-1.7800039 3.9687499-3.9687499 0-2.1887462-1.7800039-3.96875003-3.9687499-3.96875003zm0 .52916667c1.9027632 0 3.4416502 1.53681996 3.4416502 3.43958336 0 1.9027632-1.538887 3.4416502-3.4416502 3.4416502-1.9027634 0-3.43958336-1.538887-3.43958336-3.4416502 0-1.9027634 1.53681996-3.43958336 3.43958336-3.43958336zm-.0036169 1.32446696a.26460979.26460979 0 0 0 -.259933.2676839v.2227254c-.4272102.0801429-.7927162.3552394-.7927165.8319906 0 .3307291.1490956.5982189.3493328.753959s.4263305.2247926.624768.2909385c.1984375.066146.3697359.1293849.467155.2051552.097419.07577.1441772.1395265.1441772.337964 0 .4409723-1.0562663.4409723-1.0562663 0a.26464844.26464844 0 1 0 -.5291667 0c0 .4763793.3658309.7519969.7927165.8325075v.2216917a.26464844.26464844 0 1 0 .5291667 0v-.2216917c.426961-.080468.7932332-.3560628.7932332-.8325075 0-.3307292-.149612-.598219-.3498495-.7539591-.2002372-.1557401-.4263305-.2253093-.624768-.2914552-.1984375-.0661458-.3697359-.1288682-.467155-.2046385-.097419-.0757706-.1441772-.1395264-.1441772-.3379639.0000002-.4409718 1.0562663-.4409718 1.0562663 0a.2648417.2648417 0 1 0 .5296834 0c0-.4760347-.366396-.7508571-.7932332-.8314738v-.2232422a.26460979.26460979 0 0 0 -.2692342-.2676839z" fill="#626262" data-original="#626262" class=""></path>
+                </g>
+            </g>
+        </svg><span>{{$val5['weekely_rent']}}/Week</span>
+    </div>
+    <div class="locen mb-2">
+        <a href="">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                    <g>
+                        <g xmlns="http://www.w3.org/2000/svg">
+                            <path d="m243.519 505.32c2.782 4.173 7.466 6.68 12.481 6.68s9.699-2.506 12.481-6.68c35.499-53.247 87.786-119.008 124.222-185.889 29.134-53.476 43.297-99.085 43.297-139.431 0-99.252-80.748-180-180-180s-180 80.748-180 180c0 40.346 14.163 85.955 43.297 139.431 36.409 66.83 88.796 132.752 124.222 185.889zm12.481-475.32c82.71 0 150 67.29 150 150 0 35.204-12.967 76.118-39.641 125.079-31.407 57.649-76.225 116.128-110.359 165.29-34.129-49.155-78.95-107.638-110.359-165.29-26.674-48.961-39.641-89.875-39.641-125.079 0-82.71 67.29-150 150-150z" fill="#626262" data-original="#626262" class=""></path>
+                            <path d="m256 270c49.626 0 90-40.374 90-90s-40.374-90-90-90-90 40.374-90 90 40.374 90 90 90zm0-150c33.084 0 60 26.916 60 60s-26.916 60-60 60-60-26.916-60-60 26.916-60 60-60z" fill="#626262" data-original="#626262" class=""></path>
+                        </g>
+                    </g>
+                </svg> </span>
+            <span>{{$val5['property_address']}}</span>
+        </a>
+    </div>
+    <div class="proinfo">
+        <ul class="homes-list clearfix pb-3">
+            <li class="the-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="#626262" d="M6 17h1.5v-1.5h9V17H18v-4.15q0-.75-.413-1.338q-.412-.587-1.087-.862V9q0-.825-.587-1.413Q15.325 7 14.5 7h-5q-.825 0-1.412.587Q7.5 8.175 7.5 9v1.65q-.675.275-1.088.862Q6 12.1 6 12.85Zm3-6.5v-2h6v2ZM7.5 14v-1.15q0-.35.25-.6t.6-.25h7.3q.35 0 .6.25t.25.6V14ZM4 22q-.825 0-1.412-.587Q2 20.825 2 20V4q0-.825.588-1.413Q3.175 2 4 2h16q.825 0 1.413.587Q22 3.175 22 4v16q0 .825-.587 1.413Q20.825 22 20 22Zm0-2h16V4H4v16Zm0 0V4v16Z" />
+                </svg> <span>{{$val5['total_bedrooms']}}</span>
+            </li>
+            <li class="the-icons meiii"> <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                        <path fill="#626262" d="M8 14c0-.55.45-1 1-1s1 .45 1 1s-.45 1-1 1s-1-.45-1-1zm4 1c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm-3-7.5c-1.76 0-3.22 1.31-3.46 3h6.93a3.52 3.52 0 0 0-3.47-3M12 6c2.76 0 5 2.24 5 5v1H7v-1c0-2.76 2.24-5 5-5zM9 18c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm3 0c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1zm5-14H4v16h16V4m0-2c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16z" />
+                    </svg>
+                    {{$val5['total_bathrooms']}}
+                </span> </li>
+            <li class="the-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="#626262" d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z" />
+                    <path fill="#626262" d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z" />
+                </svg> <span> {{$val5['date_available']}}</span>
+            </li>
+            <li class="the-icons" id="dctdtdd">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 15 15">
+                    <path fill="none" stroke="#626262" d="M2.5 3v3m0 2v3m0 2.5V15m10-1.5V15m-3-5.5a2 2 0 1 1 0-4a2 2 0 0 1 0 4Zm-8-9h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Z" />
+                </svg> <span>​
+                    {{$val5['bond']}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="card-footer price-properties footer">
+    <h3 class="title">
+        <a href="#">
+            <span class="mt-0"> Response rate: 100%</span>
+        </a>
+    </h3>
+    <div class="compare"> <a href="{{route('roomieDetailss',['slug'=>$slug6])}}" class="new_miss"> Message </a>
+        <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
+    </div>
+</div>
+</div>
+</div>
+@endif
+@endforeach
+@endif
+</div>
+<!-- <div class="row">
                     <div class="col-12 matches">
                         <button id="matches">View more matches</button>
                     </div>
                 </div> -->
-        </section>
-        
-        <section class="pagination__block">
-            <div class="inner__block_pagination">
-                <ul>
-                    <li> <a href="#">1</a> </li>
-                    <li> <a href="#">2</a> </li>
-                    <li> <a href="#">3</a> </li>
-                    <li> <a href="#" class="active_page">4</a> </li>
-                    <li> <a href="#">5</a> </li>
-                    <li> <a href="#">6</a> </li>
-                </ul>
-            </div>
-        </section>
+</section>
+
+<section class="pagination__block">
+    <div class="inner__block_pagination">
+        <ul>
+            <li> <a href="#">1</a> </li>
+            <li> <a href="#">2</a> </li>
+            <li> <a href="#">3</a> </li>
+            <li> <a href="#" class="active_page">4</a> </li>
+            <li> <a href="#">5</a> </li>
+            <li> <a href="#">6</a> </li>
+        </ul>
     </div>
 </section>
+</div>
+</section> ------}}
 <section class="reviews__block pt-5">
     <div class="container leftside__box">
-            <div class="row align-items-center">
-                <div class="col-md-8 col-sm-6 pb-5">
-                    <h2>Reena just found her home with <span class="myfont">OkRoomie.com</span></h2>
-                    <p>"I was looking for a place for ages. Then I discovered <span class="myfont mgfont"> <i>OkRoomie.com</i> </span> and within one week I found my new home and my roomies"</p>
-                    <!-- <button>Find the perfect place</button> --><a href="#" class="btn btn-outline-light" id="my_main_color">Find the perfect place</a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <img src="{{url('public/assets/frontend/images/pending-work.png')}}" />
-                </div>
+        <div class="row align-items-center">
+            <div class="col-md-8 col-sm-6 pb-5">
+                <h2>Reena just found her home with <span class="myfont">OkRoomie.com</span></h2>
+                <p>"I was looking for a place for ages. Then I discovered <span class="myfont mgfont"> <i>OkRoomie.com</i> </span> and within one week I found my new home and my roomies"</p>
+                <!-- <button>Find the perfect place</button> --><a href="#" class="btn btn-outline-light" id="my_main_color">Find the perfect place</a>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <img src="{{url('public/assets/frontend/images/pending-work.png')}}" />
             </div>
         </div>
     </div>
+    </div>
 </section>
-@endsection('contents') 
+@endsection('contents')
 @push('carousel_script')
 <script type="text/javascript">
     $('.owl-carousel').owlCarousel({
@@ -621,52 +404,81 @@ background-repeat: no-repeat;
             }
         }
     })
-    function like(room_roomie,status,id)
-    { 
-        if("{{Auth::check()}}")
-        {
-            $.post("{{route('roomRoomieLike')}}",{id:id,type:room_roomie,status:status,_token:"{{csrf_token()}}"},function(data){
-          if(data!='')
-          {
-              if(data.find_me_a_room_id!=null)
-              {
-                    if(data.status==1)
-                    {
-                        
-                        $("#likeroom"+id).html('<a href="javascript:;" id="likeheartroom'+data.find_me_a_room_id+'" onclick="like(\'' +room_roomie+'\',0,'+data.find_me_a_room_id+')"> <i class="fa fa-heart" aria-hidden="true"></i> </a>');
+
+    function like(room_roomie, status, id) {
+        if ("{{Auth::check()}}") {
+            $.post("{{route('roomRoomieLike')}}", {
+                id: id,
+                type: room_roomie,
+                status: status,
+                _token: "{{csrf_token()}}"
+            }, function(data) {
+                if (data != '') {
+                    if (data.find_me_a_room_id != null) {
+                        if (data.status == 1) {
+
+                            $("#likeroom" + id).html('<a href="javascript:;" id="likeheartroom' + data.find_me_a_room_id + '" onclick="like(\'' + room_roomie + '\',0,' + data.find_me_a_room_id + ')"> <i class="fa fa-heart" aria-hidden="true"></i> </a>');
+                        } else {
+
+                            $("#likeroom" + id).html('<a href="javascript:;" id="notlikeheartroom' + data.find_me_a_room_id + '" onclick="like(\'' + room_roomie + '\',1,' + data.find_me_a_room_id + ')"> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>');
+                        }
+                    } else {
+
+                        if (data.status == 1) {
+
+                            $("#likeroomie" + id).html('<a href="javascript:;" id="likeheartroomie' + data.find_me_a_roomie_id + '" onclick="like(\'' + room_roomie + '\',0,' + data.find_me_a_roomie_id + ')"> <i class="fa fa-heart" aria-hidden="true"></i> </a>');
+                        } else {
+
+                            $("#likeroomie" + id).html('<a href="javascript:;" id="notlikeheartroomie' + data.find_me_a_roomie_id + '" onclick="like(\'' + room_roomie + '\',1,' + data.find_me_a_roomie_id + ')"> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>');
+                        }
                     }
-                    else
-                    {
-                        
-                        $("#likeroom"+id).html('<a href="javascript:;" id="notlikeheartroom'+data.find_me_a_room_id+'" onclick="like(\'' +room_roomie+'\',1,'+data.find_me_a_room_id+')"> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>'); 
-                    }
-              }
-              else
-              {
-                  
-                if(data.status==1)
-                    {
-                       
-                        $("#likeroomie"+id).html('<a href="javascript:;" id="likeheartroomie'+data.find_me_a_roomie_id+'" onclick="like(\'' +room_roomie+'\',0,'+data.find_me_a_roomie_id+')"> <i class="fa fa-heart" aria-hidden="true"></i> </a>');
-                    }
-                    else
-                    {
-                       
-                        $("#likeroomie"+id).html('<a href="javascript:;" id="notlikeheartroomie'+data.find_me_a_roomie_id+'" onclick="like(\'' +room_roomie+'\',1,'+data.find_me_a_roomie_id+')"> <i class="fa fa-heart-o" aria-hidden="true"></i> </a>'); 
-                    }
-              }
-              
-              
-          }
-          
-          
-      });
-            
-        }//authenticated user
-        else
-        {
+
+
+                }
+
+
+            });
+
+        } //authenticated user
+        else {
             alert('Login First');
         }
-      
+
     }
-</script> @endpush
+</script> 
+<script>
+    function paginatedata(page=1,type='')
+    {
+        $.post("{{route('paginate')}}", {
+                page: page,
+                type: type,
+                _token: "{{csrf_token()}}"
+            }, function(data) {
+                $("#dataadll").html(data)
+            });
+    }
+    function PaginateCount(page=1,type='')
+    {
+        $.post("{{route('PaginateCount')}}", {
+                page: page,
+                type: type,
+                _token: "{{csrf_token()}}"
+            }, function(data) {
+                $("#pagination__block").html(data)
+                fetchdata()
+            });
+    }
+    $(document).ready(function(){
+        paginatedata()
+        PaginateCount()
+    })
+    function fetchdata()
+    {
+        $(".paginate").click(function(){
+        page=$(this).attr('page')
+        paginatedata(page)
+        PaginateCount(page)
+    })
+    }
+</script>
+@endpush

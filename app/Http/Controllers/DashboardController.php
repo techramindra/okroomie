@@ -238,6 +238,7 @@ class DashboardController extends Controller
 
 
             $roomieIDs=RoomRoomieLike::where('user_id',$auth_id)->where('find_me_a_roomie_id','!=',null)->where('status',1)->get();
+            
            if($roomieIDs->isNotEmpty())
            {
 
@@ -350,7 +351,7 @@ class DashboardController extends Controller
 
             }
            
-           
+           dd($data);
           
              return view('pages.frontend.favourite',["data"=>$data]);
         }

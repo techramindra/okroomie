@@ -9,8 +9,32 @@ use App\Http\Controllers\Admin\PlanController;
 class HomeController extends Controller
 {
     //
-
     public function index()
+    {
+        return view('welcome');
+    }
+    public function PaginateCount(Request $request)
+    {
+        if(Auth::check())
+        {
+            $roomie=Find_me_a_roomie::with('room_image')->where('roomie_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $roomie=$roomie->toArray();
+            $room=Find_me_a_room::with('user_images')->where('room_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $room=$room->toArray();
+            $data=array_merge($roomie,$room);
+        }
+        else
+        {
+            $roomie=Find_me_a_roomie::with('room_image')->where('roomie_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $roomie=$roomie->toArray();
+            $room=Find_me_a_room::with('user_images')->where('room_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $room=$room->toArray();
+            $data=array_merge($roomie,$room);
+        }
+        ///$data=sizeof($data??[]);
+        return view('Home.PaginateCount',compact('data'));
+    }
+    public function PagiNate(Request $request)
     {
             $like='';
             $plandData='';
@@ -22,6 +46,13 @@ class HomeController extends Controller
             //for authenticate user
             $room1=array();
             $roomie1=array();
+            $page=$request->page;
+            $skip=0;
+            if($page>1)
+            {
+                $skip=($page-1)*6;
+            }
+            $take=6;
             $data=array();
 
         $plandData1=PlanController::getCurrentPlan();
@@ -29,7 +60,7 @@ class HomeController extends Controller
 
         if(Auth::check())
         {
-            $roomie=Find_me_a_roomie::with('room_image')->where('roomie_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $roomie=Find_me_a_roomie::with('room_image')->where('roomie_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->skip($skip)->take($take)->get();
             $roomie=$roomie->toArray();
             if(count($roomie)>0)
             {
@@ -57,7 +88,7 @@ class HomeController extends Controller
                 }
             }
            
-            $room=Find_me_a_room::with('user_images')->where('room_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $room=Find_me_a_room::with('user_images')->where('room_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->skip($skip)->take($take)->get();
             $room=$room->toArray();
             if(count($room)>0)
             {
@@ -95,12 +126,12 @@ class HomeController extends Controller
                 }
             }
           
-        
-             return view('welcome',["data"=>$data,'plan'=>$plandData]);
+       
+             return view('Home.Listing',["data"=>$data,'plan'=>$plandData]);
         }
         else
         {
-            $roomie=Find_me_a_roomie::with('room_image')->where('roomie_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $roomie=Find_me_a_roomie::with('room_image')->where('roomie_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->skip($skip)->take($take)->get();
             $roomie=$roomie->toArray();
             if(count($roomie)>0)
             {
@@ -128,7 +159,7 @@ class HomeController extends Controller
                 }
             }
            
-            $room=Find_me_a_room::with('user_images')->where('room_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->get();
+            $room=Find_me_a_room::with('user_images')->where('room_listing_status','!=','1')->where('completed_step','yes')->orderBy('id', 'desc')->skip($skip)->take($take)->get();
             $room=$room->toArray();
             if(count($room)>0)
             {
@@ -166,8 +197,8 @@ class HomeController extends Controller
                 }
             }
           
-        
-             return view('welcome',["data"=>$data]);
+           
+             return view('Home.Listing',["data"=>$data]);
         }
        
     }

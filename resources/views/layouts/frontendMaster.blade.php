@@ -2329,7 +2329,7 @@
                         <!--  <div class="left-side"> -->
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="\"><img src="{{url('public/assets/frontend/images/logonk.png')}}" data-sticky-logo="https://okroomie.com/public/assets/frontend/images/logonk.png" alt=""></a>
+                            <a href="{{url('/')}}"><img src="{{url('public/assets/frontend/images/logonk.png')}}" data-sticky-logo="https://okroomie.com/public/assets/frontend/images/logonk.png" alt=""></a>
                         </div>
                     </div>
                     <div class="header-search">
@@ -2688,7 +2688,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 mb-3">
                         <div class="netabout mb-3">
-                            <a href="index.html" class="logo footerlogo">
+                            <a href="{{url('/')}}" class="logo footerlogo">
                                 <img src="{{url('public/assets/frontend/images/logonk.png')}}" alt="netcom">
                             </a>
                         </div>
@@ -2735,13 +2735,14 @@
                             <div class="nav-footer">
                                 <ul>
                                     <li><a href="{{url('about_us')}}">About us</a></li>
-                                    <li><a href="https://okroomie.com/ContactUs">Contact us</a></li>
-                                    <li><a href="https://okroomie.com/howItWorks">How it works</a></li>
-                                    <li><a href="https://okroomie.com/termsAndConditions">Terms and conditions</a></li>
-                                    <li><a href="https://okroomie.com/privacyPolicy">Privacy Policy</a></li>
-                                    <li><a href="https://okroomie.com/helpcenter">FAQ</a></li>
-                                    <li><a href="https://okroomie.com/info">Info</a></li>
-                                    <li class="no-mgb"><a href="#">Humanitarian Contributions</a></li>
+                                    <li><a href="{{url('ContactUs')}}">Contact us</a></li>
+                                    <li><a href="{{url('howItWorks')}}">How it works</a></li>
+                                    <li><a href="{{url('termsAndConditions')}}">Terms and conditions</a></li>
+                                    <li><a href="{{url('privacyPolicy')}}">Privacy Policy</a></li>
+                                    <li><a href="{{url('helpcenter')}}">FAQ</a></li>
+                                    <li><a href="{{url('info')}}">Info</a></li>
+                                    <li><a href="{{url('helpcenter')}}">Help Center</a></li>
+                                    <li class="no-mgb"><a href="{{url('humanitarianContributions')}}">Humanitarian Contributions</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -2884,7 +2885,7 @@
             <div class="container-fluid sd-f">
                 <div class="row second-footer-row">
                     <div class="col-lg-12">
-                        <p>2021 © Copyright Okroomie.com - Made with a lot of Brains ,Coffee and Tea</p>
+                        <p>{{date('Y')}} © Copyright Okroomie.com </p>
                     </div>
                     <!--    <ul class="netsocials">
                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
