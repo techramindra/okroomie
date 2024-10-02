@@ -25,7 +25,14 @@ body{
 }
 
 .step-header .inner-block svg {
-    width: 105px;
+    width: 10px;
+}
+a.header-link svg {
+    margin: 0;
+    
+}
+a.header-link:hover{
+    color: #FF5E3C !important;
 }
 .logo img {
     width: 165px;
@@ -1180,4 +1187,10 @@ span.Plan__title {
         font-weight: 500;
         /* font-weight: 600; */
         margin-bottom: 1rem !important;
+    }
+    span.header-icon {
+        color: black;
+    }
+    .preview_main {
+        padding: 0 7rem 0;
     }

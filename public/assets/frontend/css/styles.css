@@ -204,8 +204,17 @@
 
   header#header-container {
     background: #008FB4 !important;
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
-
+  section.feature-categories.find-block-main.rec-pro {
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+section.featured.portfolio.rec-pro.disc.featured__modify_nk.bg-white{
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 
   a:-webkit-any-link:focus-visible {
     outline-offset: 0;
@@ -50035,7 +50044,7 @@
     opacity: 1 !important;
     width: 600px;
     /* background: red; */
-    left: -225px !important;
+    
     right: 0 !important;
     margin: auto;
   }
