@@ -33,11 +33,7 @@ section.reviews__block {
     display: none;
 }
 
-.first-footer .top-footer {
-    background: #292B32;
-    color: #333;
-    padding: 3rem 7rem 1rem !important;
-}
+
 
 span.myfont {
     font-family: 'Domaine Display', sans-serif;
@@ -157,14 +153,6 @@ li.bor_uk a {
     padding: 5px 0px;
 }
 
-.findSearch-block .searchInner {
-    border: 1px solid #243233;
-    box-shadow: none;
-}
-
-.findSearch-block .searchInner i {
-    color: whiles;
-}
 
 .searchbutton button {
     padding: 8px;
@@ -172,50 +160,26 @@ li.bor_uk a {
     background: #008FB4 !important;
 }
 
-.findSearch-block .searchInner button {
-    background: #008FB4 !important;
-    border: none;
-    padding-right: 15px;
-    font-size: 15px;
-}
 
-.findSearch-block .searchInner input::placeholder {
-    font-family: "Montserrat";
-    color: #ddd;
-}
 
 #navigation.style-1 ul li:hover {
     background: none;
 }
 
-.findSearch-block .searchInner {
-    display: flex;
-    align-items: center;
-    border: 1px solid #243233;
-    padding: 0px 0px 0 20px;
-    border-radius: 5px;
-    box-shadow: 0 12px 15px 0 rgb(135 123 123 / 38%);
-    color: #fff;
-    font-size: 14px;
-    text-decoration: none;
-    line-height: 20px;
-    font-family: "Montserrat";
-    cursor: pointer;
-    font-weight: 400;
-}
+
 
 h1.fir_choya i {
     font-size: 18px;
 }
 
-.findSearch-block .searchInner input {
+/* .findSearch-block .searchInner input {
     padding: 8px 5px;
     width: 95%;
     background: transparent;
     border: none;
     outline: none;
     padding-left: 15px;
-}
+} */
 
 .stickynk {
     position: fixed;
@@ -910,10 +874,7 @@ button.close {
     z-index: 9999999999 !important;
 }
 
-.searchInner input#search-click::placeholder {
-    color: white !important;
-    font-size: 14px;
-}
+
 
 .maint_b {
     /*background-size: contain;
