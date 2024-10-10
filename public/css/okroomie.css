@@ -1,7 +1,4 @@
-section.reviews__block {
-    /* background: red; */
-    background-color: #ced4da;
-}
+
 
 .errror p {
     color: #e31f1f;
@@ -832,13 +829,13 @@ small {
 }
 
 .find-block-main {
-    display: flex;
+    /* display: flex; */
     /* justify-content: flex-start; */
-    align-items: center;
+    /* align-items: center;
     background: url(https://okroomie.com/public/assets/frontend/images/bigp.jpg) !important;
     background-size: cover !important;
     background-position: center right;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     /* position: relative; */
     /* background-repeat: no-repeat !important; */
     /* overflow: auto !important; */
