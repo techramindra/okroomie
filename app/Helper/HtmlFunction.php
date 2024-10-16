@@ -15,3 +15,12 @@ function profilepic($image,$name,$type=0)
         return '<div class="innner_name">'.$name.'</div>';
     }
 }
+function shortstr($str,$lent=10)
+{
+    $sdd='';
+    if(strlen($str)>20)
+    {
+        $sdd='...';
+    }
+    return substr($str,0,$lent).$sdd;
+}

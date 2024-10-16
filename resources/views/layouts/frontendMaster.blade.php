@@ -8,22 +8,14 @@
     <meta name="description" content="html 5 template">
     <meta name="author" content="">
     <!-- google map api link -->
-
-
-
-
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5GXkHKunbMYE85WJI_Vgv6IXZ-xz_so8&sensor=false&libraries=places"></script>
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <title>OKROOMIE</title>
-
-
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://github.com/CTU-IIG/macan.git">
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/jquery-ui.css')}}">
@@ -43,7 +35,6 @@
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/aos2.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/lightcase.css')}}">
-    <!--  <link rel="stylesheet" href="{{url('public/assets/frontend/css/owl.carousel.min.css')}}"> -->
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/menu.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/slick.css')}}">
@@ -54,7 +45,6 @@
     <link rel="stylesheet" href="{{url('public/assets/toastr/css/toastr.min.css')}}">
     <link rel="stylesheet" href="{{url('public/assets/frontend/list-my-place/css/owl.carousel.min.css')}}" />
     <link rel="stylesheet" href="{{url('public/assets/frontend/list-my-place/css/owl.theme.default.css')}}" />
-
     <link rel="stylesheet" href="{{url('public/assets/frontend/css/styles.css')}}">
     <link rel="stylesheet" href="{{url('public/css/okroomie.css')}}">
     <!-- toastr css -->
@@ -502,7 +492,7 @@
                     <div class="modal-body">
                         <div id="wrapper">
                             <section class="nkmagicform UserDashboardmain">
-                                <div class="container-fluid">
+                                <div class="">
                                     <div class="main-overlay"></div>
                                     <div class="user-dashboard_inner">
                                         <div class="row">
@@ -760,10 +750,10 @@
         <!-- START SECTION HEADINGS -->
         <!-- Header Container
             ================================================== -->
-        <header id="header-container" class="header head-tr">
+        <header id="header-container" class="header head-tr padding-fit">
             <!-- Header -->
             <div id="header" class="head-tr bottom">
-                <div class="container-fluid nk-container" id="headerBar">
+                <div class="nk-container" id="headerBar">
                     <div class="header-logo">
                         <!-- Left Side Content -->
                         <!--  <div class="left-side"> -->
@@ -1036,7 +1026,7 @@
         </section>
         <footer class="first-footer rec-pro">
             <div class="top-footer">
-                <div class="container-fluid">
+                <div class="padding-fit">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 mb-3">
                             <div class="netabout mb-3">

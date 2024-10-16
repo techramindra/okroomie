@@ -155,7 +155,7 @@ require __DIR__.'/auth.php';
 
 //Route::get("find-me-a-roomie/index",[App\Http\Controllers\FindMeARoomieController::class, 'step1'])->middleware(['auth']);
 Route::get("find-me-a-roomie/index",[App\Http\Controllers\FindMeARoomieController::class, 'step1'])->middleware(['auth']);
-Route::post("find-me-a-roomie/index",[App\Http\Controllers\FindMeARoomieController::class, 'store_step1'])->middleware(['auth']);
+Route::post("find-me-a-roomie/index",[App\Http\Controllers\FindMeARoomieController::class, 'store_step1'])->middleware(['auth'])->name('roomie-save1');
 
 Route::get("find-me-a-roomie/2/{step2}",[App\Http\Controllers\FindMeARoomieController::class, 'step2'])->middleware(['auth']);
 Route::post('find-me-a-roomie/step-2',[App\Http\Controllers\FindMeARoomieController::class, 'store']);

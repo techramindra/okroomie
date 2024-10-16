@@ -32,6 +32,7 @@ class ComposerStaticInit7060a14f189435971e68639c0ee0f314
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '5e589199f07068fe17909687ec656837' => __DIR__ . '/../..' . '/app/Helper/HtmlFunction.php',
+        '7f0e225c676034444f7515db60b9c54a' => __DIR__ . '/../..' . '/app/Helper/StaticValues.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -592,6 +593,13 @@ class ComposerStaticInit7060a14f189435971e68639c0ee0f314
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
         'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',
+        'App\\View\\Components\\Roomie\\Addroomie' => __DIR__ . '/../..' . '/app/View/Components/Roomie/Addroomie.php',
+        'App\\View\\Components\\Roomie\\Step1' => __DIR__ . '/../..' . '/app/View/Components/Roomie/Step1.php',
+        'App\\View\\Components\\Roomie\\Step2' => __DIR__ . '/../..' . '/app/View/Components/Roomie/Step2.php',
+        'App\\View\\Components\\Roomie\\Step3' => __DIR__ . '/../..' . '/app/View/Components/Roomie/Step3.php',
+        'App\\View\\Components\\Roomie\\Step4' => __DIR__ . '/../..' . '/app/View/Components/Roomie/Step4.php',
+        'App\\View\\Components\\roomcard' => __DIR__ . '/../..' . '/app/View/Components/roomcard.php',
+        'App\\View\\Components\\roomiecard' => __DIR__ . '/../..' . '/app/View/Components/roomiecard.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',

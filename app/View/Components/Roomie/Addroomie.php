@@ -1,22 +1,19 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Roomie;
 
 use Illuminate\View\Component;
 
-class roomcard extends Component
+class Addroomie extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    private $val;
-    private $key;
-    public function __construct($val,$key)
+    public function __construct()
     {
-        $this->val=$val;
-        $this->key=$key;
+        //
     }
 
     /**
@@ -26,8 +23,6 @@ class roomcard extends Component
      */
     public function render()
     {
-        $key=$this->key;
-        $val=$this->val;
-        return view('components.room-card',compact('key','val'));
+        return view('components.roomie.addroomie');
     }
 }

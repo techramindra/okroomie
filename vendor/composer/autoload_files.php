@@ -31,4 +31,5 @@ return array(
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     'ec07570ca5a812141189b1fa81503674' => $vendorDir . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
     '5e589199f07068fe17909687ec656837' => $baseDir . '/app/Helper/HtmlFunction.php',
+    '7f0e225c676034444f7515db60b9c54a' => $baseDir . '/app/Helper/StaticValues.php',
 );

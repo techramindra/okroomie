@@ -29,7 +29,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files":[
-            "app/Helper/HtmlFunction.php"
+            "app/Helper/HtmlFunction.php",
+            "app/Helper/StaticValues.php"
         ]
     },
     "autoload-dev": {

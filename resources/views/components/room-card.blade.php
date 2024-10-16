@@ -54,20 +54,8 @@
                 <a href="javascript:;" id="likeheartroom{{$val['id']}}" onclick="like('ROOM',0,{{$val['id']}})"> <i class="fa fa-heart" aria-hidden="true"></i> </a>
                 @endif
             </div>
-
-            <!-- <div class="price2"> {{\Carbon\Carbon::parse($val['created_at'])->diffForHumans() }}</div> -->
-            <!-- <div class="price">
-                <div class="icone_div1">
-                    <a href=""> <i class="fa fa-link" aria-hidden="true"></i> </a>
-                </div>
-                <div class="icone_div1">
-                    <a href=""> <i class="fa fa-video-camera" aria-hidden="true"></i> </a>
-                </div>
-                <div class="icone_div1">
-                    <a href=""> <i class="fa fa-picture-o" aria-hidden="true"></i> </a>
-                </div>
-            </div> -->
         </div>
+        {{----
         <div class="card-body">
             <div class="name">
                 <h3>
@@ -113,6 +101,7 @@
                 </ul>
             </div>
         </div>
+        
         <div class="card-footer price-properties footer">
             <h3 class="title">
                 <a href="#">
@@ -121,6 +110,31 @@
             </h3>
             <div class="compare"> <a href="{{route('roomDetailss',['id'=>$val['okroomie_id']])}}" class="new_miss"> Message </a>
                 <!-- <a href="#" title="Favorites"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
+            </div>
+        </div>----}}
+        <div class="property-details">
+            <div class="section-1 mt-2">
+                <div class="price-container">
+                    <span class="price">{{$val['your_first_name']}}</span>
+                    <span class="inc-bills">Age - {{$val['age']}} year</span>
+                </div>
+                <div class="message-btn-div">
+                    <a href="{{route('roomDetailss',['id'=>$val['okroomie_id']])}}"><button class="message-btn">
+                        <i class="fa fa-commenting-o"></i>Message
+                    </button>
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="location-availability mt-2">
+                <span class="location">{{shortstr($val['suburb'],20)}}</span>
+                <span class="availability">Available {{date('d M y',strtotime($val['date_available']))}}</span>
+            </div>
+
+            <div class="room-details mt-2">
+                <p>{{shortstr($val['about_yourself'],50)}}</p>
             </div>
         </div>
     </div>
