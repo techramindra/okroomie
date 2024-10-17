@@ -246,9 +246,9 @@ i.fa.fa-calendar {z-index: 8;display: block;/* background: radial-gradient(black
                 icon: false
             });
         });
-
+        var $j = jQuery.noConflict();
           $( function() {
-            $( "#datepicker" ).datepicker({
+            $j( "#datepicker" ).datepicker({
             showOn: "button",
             buttonImage: "<i class='fa fa-calendar-days'></i>",
             buttonImageOnly: false,

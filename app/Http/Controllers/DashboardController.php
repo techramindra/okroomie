@@ -205,8 +205,10 @@ class DashboardController extends Controller
        
         $slug_array=explode('-',$slug);
         $arr_length=count($slug_array);
+        
         //table find-me-a-roomie's id
         $id=$slug_array[$arr_length-2];
+       // dd($slug_array);
         $active_plan_data=PlanController::getCurrentPlan();
         $ttt=json_decode($active_plan_data);
         $data=Find_me_a_roomie::where('id',$id)->first();

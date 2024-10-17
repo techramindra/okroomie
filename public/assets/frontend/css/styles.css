@@ -52649,7 +52649,7 @@ box-shadow: unset !important;
     .cRadiosub {
       /* border: 1px solid var(--fc); */
       /* border-radius: 12%; */
-      text-align: center;
+      /* text-align: center; */
   }
   input.steprd {
     opacity: 0;
@@ -52657,10 +52657,12 @@ box-shadow: unset !important;
 }
 label.radio-btn {
   border: 2px solid var(--fc);
-  height: 35px;
+  height: 40px;
   width: 100%;
   border-radius: 4px;
-  line-height: 33px;
+  line-height: 38px;
+  /* padding-left: 35%; */
+  text-align: center;
 }
 label.radio-btn:hover{
   background-color: var(--fc);
@@ -52682,7 +52684,7 @@ label.radio-btn:hover{
 .button_mod {
   background: var(--fc);
   color: var(--secondary);
-  padding: 8px 13px;
+  padding: 8px 13px 7px 13px;
   
   font-size: 10px;
 }
@@ -52711,3 +52713,50 @@ label.radio-btn:hover{
 section#formdata {
   padding: 4rem 0rem;
 }
+label.radio-btn.checkbox-btn {
+  width: 56%;
+  text-align: unset;
+  padding: 0rem 2.5rem;
+  box-sizing: content-box;
+}
+label.titlestep.small-title {
+  font-size: 18px;
+}
+label.radio-btn.box-btn {
+  height: 8rem;
+  width: 80%;
+}
+
+.sub-text {
+  text-align: center;
+  width: 80%;
+}
+.box-btn:hover.box-btn path{
+fill: var(--secondary);
+}
+.input-amout {
+  border: none;
+}
+
+.input-group {
+  border: 2px solid var(--primary);
+  border-radius: 0.4rem;
+}
+.input-group-text{
+  background-color: var(--fc);
+  border:none;
+  color: var(--secondary);
+}
+/* #date-pickers::-webkit-calendar-picker-indicator {
+  position: absolute;
+   right: -25px;
+   width: 100px;
+   height: 20px;
+   border: 1px solid;
+   z-index: 1;
+   background-color: red;
+   fill: wheat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+ 
+} */

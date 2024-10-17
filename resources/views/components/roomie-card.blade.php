@@ -50,12 +50,15 @@
                 </div>
                 <div class="message-btn-div">
                 @php
-                $slug_string=$val['accomodation_type'].' '.$val['property_address'].' '.$val['id'].'
+                 $slug_string=$val['accomodation_type'].' '.$val['property_address'].' '.$val['id'].'
                 '.'Ok'.$val['user_id'];
                 $slug_array=explode(" ",$slug_string);
+                $slug_array=array_filter($slug_array, fn($value) => !is_null($value) && $value !== '');
+               
                 $slug=implode("-",$slug_array);
+                
                 @endphp
-                <a href="{{route('roomieDetailss',['slug'=>$slug])}}"> <button class="message-btn">
+                <a href="{{route('roomieDetailss',parameters: ['slug'=>$slug])}}"> <button class="message-btn">
                         <i class="fa fa-commenting-o"></i>Message</button></a>
                 </div>
             </div>

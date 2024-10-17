@@ -5,7 +5,7 @@ use App\Models\Find_me_a_roomie;
 use App\Models\Room_image;
 use Illuminate\Http\Request;
 use App\Models\{User,Payment};
-use App\View\Components\Roomie\Step1;
+use App\View\Components\Roomie\{Step1,Step2,Step3,Step4};
 use Auth,Session,Validator,Redirect,Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 
@@ -100,7 +100,23 @@ class FindMeARoomieController extends Controller
 
     public function store_step1(Request $request)
     {
-        return (new Step1)->render();
+        if($request->page==0)
+        {
+            return (new Step1)->render();
+        }
+        if($request->page==1)
+        {
+            return (new Step2)->render();
+        }
+        if($request->page==2)
+        {
+            return (new Step3)->render();
+        }
+        if($request->page==3)
+        {
+            return (new Step4)->render();
+        }
+        
     }
 
    

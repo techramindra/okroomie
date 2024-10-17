@@ -166,8 +166,8 @@
                     </div>
                     <div class="col-md-12 mb-4">
                         <div class="stepbutton">
-                            <button class="back-button btn btn-default">Back</button>
-                            <button class="continue-button btn btn-default ml-3">Continue</button>
+                            <!-- <button class="back-button btn btn-default">Back</button> -->
+                            <button onclick="loadform(1)" type="button" class="continue-button btn btn-default">Continue</button>
                         </div>
                     </div>
                 </div>
